@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="wrapper">
+    <div id="books" class="tables">
+        <h1>Books</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th class="middle">Title</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in all_books %}
+                <tr>
+                    <td>{{book.id}}</td>
+                    <td class="middle">{{book.title}}</td>
+                    <td><a href="books/{{book.id}}">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div id="authors" class="tables">
+        <h1>Authors</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th class="middle">Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for author in all_authors %}
+                <tr>
+                    <td>{{author.id}}</td>
+                    <td class="middle">{{author.first_name}} {{author.last_name}}</td>
+                    <td><a href="authors/{{author.id}}">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

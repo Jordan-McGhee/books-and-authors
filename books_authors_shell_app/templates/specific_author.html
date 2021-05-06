@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{this_author.first_name}} {{this_author.last_name}}</h1>
+<p>ID: {{this_author.id}}</p>
+
+<p>Notes: {{this_author.notes}}</p>
+
+<p>Books:</p>
+<ul>
+    {% for book in this_author.books.all %}
+    <li>{{book.title}}</li>
+    {% endfor %}
+</ul>
+
+
+<form action="/authors/{{this_author.id}}/addbook" method="POST">
+    {% csrf_token %}
+    <select name="book">
+        <option value="none">Select Book</option>
+        {% for book in all_books %}
+            {% if book not in this_author.books.all %}
+            <option value="{{book.id}}">{{book.title}}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+
+    <input class="button" type="submit" value="Add Book to Author">
+</form>
+
+{% endblock %}

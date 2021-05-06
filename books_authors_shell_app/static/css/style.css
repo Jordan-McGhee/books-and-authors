@@ -1,0 +1,58 @@
+/* INDEX */
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#container {
+    width: 970px;
+    margin: auto;
+    padding: 20px;
+    background-color: #efefef;
+}
+
+#wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+.middle {
+    width: 150px;
+}
+
+.tables th, td {
+    min-width: 50px;
+    margin: 5px;
+}
+
+.tables h1 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* books & authors .html */
+
+.form_field {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#add {
+    width: 300px;
+}
+
+#add h1 {
+    text-align: center;
+}
+
+.button {
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+/* specific htmls */
+

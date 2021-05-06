@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="wrapper">
+    <div id="add">
+        <h1>Add An Author</h1>
+        <form action="/authors/create" method="post">
+            {% csrf_token %}
+            
+            <div class="form_field">
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name">
+            </div>
+
+            <div class="form_field">
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name">
+            </div>
+
+            <div class="form_field">
+                <label for="notes">Notes</label>
+                <textarea name="notes" cols="19" rows="3"></textarea>
+            </div>
+
+            <input class="button" type="submit" value="Add Author">
+        </form>
+    </div>
+
+    <div id="authors" class="tables">
+        <h1>Authors</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th class="middle">Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for author in all_authors %}
+                <tr>
+                    <td>{{author.id}}</td>
+                    <td class="middle">{{author.first_name}} {{author.last_name}}</td>
+                    <td><a href="authors/{{author.id}}">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

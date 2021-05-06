@@ -1,0 +1,58 @@
+from books_authors_shell_app.models import *
+
+Book.objects.create(title="C Sharp",description="book")
+Book.objects.create(title="Java",description="book")
+Book.objects.create(title="Python",description="book")
+Book.objects.create(title="PHP",description="book")
+Book.objects.create(title="Ruby",description="book")
+
+author_one = Author.objects.create(first_name="Jane", last_name="Austen")
+author_two = Author.objects.create(first_name="Emily", last_name="Dickinson")
+author_three=Author.objects.create(first_name="Fyodor", last_name="Dostoevsky")
+author_four=Author.objects.create(first_name="William", last_name="Shakespeare)
+author_five=Author.objects.create(first_name="Lau", last_name="Tzu")
+
+python manage.py makemigrations books_authors_shell_app
+1
+"note"
+python manage.py migrate
+
+python manage.py shell
+
+from books_authors_shell_app.models import *
+
+>>> book_one = Book.objects.get(id=1)
+>>> book_one.title="C#"
+>>> book_one.save()
+
+>>> author_four = Author.objects.get(id=4)
+>>> author_four.first_name="Bill"
+>>> author_four.save()
+
+>>> author_one = Author.objects.get(id=1)
+>>> author_two = Author.objects.get(id=2)
+>>> author_three=Author.objects.get(id=3)
+>>> author_four=Author.objects.get(id=4)
+>>> author_five=Author.objects.get(id=5)
+>>> book_two = Book.objects.get(id=2)
+>>> book_three=Book.objects.get(id=3)
+>>> book_four=Book.objects.get(id=4)
+>>> book_five=Book.objects.get(id=5)
+
+>>> author_one.books.add(book_one, book_two)
+
+>>> author_two.books.add(book_one, book_two,book_three)
+
+>>> author_three.books.add(book_one,book_two,book_three, book_four)
+
+>>> author_four.books.add(book_one, book_two,book_three,book_four,book_five)
+
+>>> book3.authors.all()
+
+>>> book5.authors.all()
+
+>>> author_five.books.add(book_two)
+
+>>> author_three.books.all()
+
+>>> book5.authors.all()
